@@ -9,4 +9,10 @@ class Products extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function product_reciept() {
+        return $this->hasMany(product_reciept::class);
+        }
+
+        
 }
