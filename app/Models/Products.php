@@ -14,5 +14,7 @@ class Products extends Model
         return $this->hasMany(product_reciept::class);
         }
 
-        
+        public function user() {
+            return $this->belongsTo(User::class);
+            }
 }

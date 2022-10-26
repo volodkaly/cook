@@ -13,5 +13,9 @@ class Reciepts extends Model
     public function product_reciept() {
         return $this->hasMany(product_reciept::class);
         }
+
+        public function user() {
+            return $this->belongsTo(User::class);
+            }
 }
 

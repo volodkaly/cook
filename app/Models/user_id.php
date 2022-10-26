@@ -11,6 +11,8 @@ class user_id extends Model
     protected $guarded = [];
 
     public function user() {
-        return $this->hasOne(user::class);
+        
+            return $this->belongsTo(User::class);
+            
         }
 }
