@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->tinyInteger('level');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

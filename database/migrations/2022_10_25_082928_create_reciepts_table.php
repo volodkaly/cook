@@ -16,8 +16,11 @@ return new class extends Migration
         Schema::create('reciepts', function (Blueprint $table) {
             $table->unsignedBigInteger('receipt_id');
             $table->string('title');
-            $table->unsignedBigInteger('user_id');
+            $table->text('content');
+            $table->foreignId('user_id')->constrained()
+            ->onDelete('cascade');
             $table->boolean('is_modered');
+            $table->softDeletes();
         });
     }
 
