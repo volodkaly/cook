@@ -1,23 +1,30 @@
 @extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@section('title', 'My receipts')
+@section('main')
+<p class="text-right"><a href="">Add new receipt</a></p>
+@if (count($recs) > 0)
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Receipt</th>
+            <th colspan="2">&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($recs as $rec)
+        <tr>
+            <td>
+                <h3>{{ $rec->title }}</h3>
+            </td>
+            <td>
+                <a href="{{ route('rec.edit', ['rec' => $rec->id]) }}">Edit</a>
+            </td>
+            <td>
+                <a href="{{ route('rec.delete', ['rec' => $rec->id]) }}">Delete</a>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+@endif
 @endsection

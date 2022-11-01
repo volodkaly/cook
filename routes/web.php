@@ -14,13 +14,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/','main')->name('main');
+// Route::view('/', 'main')->name('main');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/home/add', [HomeController::class, 'showAddRecForm'])
-->name('rec.add');
+    ->name('rec.add');
+
 Route::post('/home', [HomeController::class, 'storeRec'])
-->name('rec.store');
+    ->name('rec.store');
+
+Route::get(
+    '/home/{rec}/edit',
+    [HomeController::class, 'showEditRecForm']
+)
+    ->name('rec.edit');
+
+Route::patch('/home/{rec}', [HomeController::class, 'updateRec'])
+    ->name('rec.update');
+Route::get(
+    '/home/{rec}/delete',
+    [HomeController::class, 'showDeleteRecForm']
+)
+    ->name('rec.delete');
+
+Route::delete('/home/{rec}', [HomeController::class, 'destroyRec'])
+    ->name('rec.destroy');
+
+Route::get('/', [HomeController::class, 'index'])->name('index');
+
+Route::get('/{rec}', [RecController::class, 'detail'])->name('detail');

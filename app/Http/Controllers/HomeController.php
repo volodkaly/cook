@@ -28,7 +28,7 @@ class HomeController extends Controller
     {
         return view(
             'home',
-            ['bbs' => Auth::user()->reciepts()->latest()->get()]
+            ['recs' => Auth::user()->reciepts()->latest()->get()]
         );
     }
 
@@ -43,6 +43,32 @@ class HomeController extends Controller
             'title' => $request->title,
             'content' => $request->content
         ]);
+        return to_route('home');
+    }
+
+    public function showEditRecForm(Reciepts $rec)
+    {
+        return view('rec_edit', ['rec' => $rec]);
+    }
+
+    public function updateRec(Request $request, Reciepts $rec)
+    {
+        $rec->fill([
+            'title' => $request->title,
+            'content' => $request->content
+        ]);
+        $rec->save();
+        return to_route('home');
+    }
+
+    public function showDeleteRecForm(Reciepts $rec)
+    {
+        return view('rec_delete', ['rec' => $rec]);
+    }
+
+    public function destroyRec(Reciepts $rec)
+    {
+        $rec->delete();
         return to_route('home');
     }
 }
