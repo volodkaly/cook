@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'My receipts')
 @section('main')
-<p class="text-right"><a href="">Add new receipt</a></p>
+<p class="text-left"><a href="{{ route('rec.add') }}">Add new receipt</a></p>
 @if (count($recs) > 0)
 <table class="table table-striped">
     <thead>

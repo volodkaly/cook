@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RecController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::view('/', 'main')->name('main');
+ Route::view('/main', 'main')->name('main');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/home/add', [HomeController::class, 'showAddRecForm'])
     ->name('rec.add');

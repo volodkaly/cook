@@ -14,13 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('reciepts', function (Blueprint $table) {
-            $table->unsignedBigInteger('receipt_id');
+            $table->id();
             $table->string('title');
             $table->text('content');
             $table->foreignId('user_id')->constrained()
             ->onDelete('cascade');
-            $table->boolean('is_modered');
+            $table->boolean('is_modered')->nullable();
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 
