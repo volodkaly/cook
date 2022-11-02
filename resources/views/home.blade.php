@@ -22,6 +22,9 @@
             <td>
                 <a href="{{ route('rec.delete', ['rec' => $rec->id]) }}">Delete</a>
             </td>
+            <td>
+                <a href="{{ route('detail', ['rec' => $rec->id]) }}">Details...</a>
+            </td>
         </tr>
         @endforeach
     </tbody>
