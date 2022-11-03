@@ -17,12 +17,6 @@
                 <h3>{{ $rec->title }}</h3>
             </td>
             <td>
-                <a href="{{ route('rec.edit', ['rec' => $rec->id]) }}">Edit</a>
-            </td>
-            <td>
-                <a href="{{ route('rec.delete', ['rec' => $rec->id]) }}">Delete</a>
-            </td>
-            <td>
                 <a href="{{ route('detail', ['rec' => $rec->id]) }}">Details...</a>
             </td>
         </tr>
