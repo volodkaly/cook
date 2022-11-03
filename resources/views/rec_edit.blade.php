@@ -1,11 +1,11 @@
 @extends('layouts.app')
-@section('title', 'Edit receipt: ')
+@section('title', 'Edit recipe: ')
 @section('main')
 <form action="{{ route('rec.update', ['rec' => $rec->id]) }}" method = "POST">
     @csrf
     @method('PATCH')
     <div class="form-group">
-        <label for="txtTitle">Receipt</label>
+        <label for="txtTitle">Recipe</label>
         <input name="title" id="txtTitle" class="form-control" value="{{ $rec->title }}">
     </div>
     <div class="form-group">
@@ -13,6 +13,6 @@
         <textarea name="content" id="txtContent" class="form-control" row="3">{{ $rec->content }}</textarea>
     </div>
 
-    <input type="submit" class="btn btn-primary" value="Edit receipt">
+    <input type="submit" class="btn btn-primary" value="Edit recipe">
 </form>
 @endsection

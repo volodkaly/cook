@@ -23,6 +23,9 @@
                     <h3>{{ $rec->title }}</h3>
                 </td>
                 <td>
+                <h3>{{ $rec->content }}</h3>
+                </td>
+                <td>
                 <a href="{{ route('detail', ['rec' => $rec->id]) }}">Details...</a>
                 </td>
             </tr>

@@ -7,12 +7,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>{{$rec->title}} Receipt</title>
+    <title>{{$rec->title}} Recipe</title>
 </head>
 
 <body>
     <div class="container">
-        <h1 class="my-3 text-center">Receipts</h1>
+        <h1 class="my-3 text-center">Recipe</h1>
         <h2>{{ $rec->title }}</h2>
         <p>{{ $rec->content }}</p>
         <a href="{{ route('rec.edit', ['rec' => $rec->id]) }}">
@@ -24,7 +24,7 @@
             Delete
         </button>
         </a>
-        <p><a  href="{{ route('index') }}" class="text-center">To the list of Reciepts</a></p>
+        <p><a  href="{{ route('index') }}" class="text-center">To the list of recipes</a></p>
     </div>
 </body>
 

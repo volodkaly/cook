@@ -66,10 +66,10 @@
                             
                         
 
-                        <a href="{{ route('index') }}" class="nav-item nav-link">Мои объявления</a>
+                        <a href="{{ route('index') }}" class="nav-item nav-link">My recipes</a>
                         <form action="{{ route('logout') }}" method="POST" class="form-inline">
                             @csrf
-                            <input type="submit" class="btn btn-danger" value="Выход">
+                            <input type="submit" class="nav-item nav-link" value="Log out">
                         </form>
 
 
