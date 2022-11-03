@@ -21,9 +21,4 @@ class Reciepts extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-    public function reciepts()
-    {
-        return $this->hasMany(Reciepts::class);
-    }
 }
